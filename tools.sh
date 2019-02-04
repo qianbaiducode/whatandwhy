@@ -289,7 +289,7 @@ function python_libs()
       ;;
     19) its&&apt install scipy -y&&python_libs
       ;;
-    21) lib
+    21) plibs
       ;;
     22) python -m pip install --upgrade pip&&python_libs
       ;;
@@ -334,7 +334,7 @@ function start()
       ;;
     6) bash repo.sh&&start
       ;;
-    7) cd&&apt install zsh&&sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O-)"
+    7) cd&&apt install zsh&&chsh -s zsh&&sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O-)"&&cd&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&cd whatandwhy&&reset
       ;;
     8) cd&&pkg install vim&&curl -sLf https://spacevim.org/install.sh | bash
       ;;
