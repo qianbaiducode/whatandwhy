@@ -190,7 +190,7 @@ function pentest_tools()
       ;;
     6) cd&&git clone https://github.com/UltimateHackers/Hash-Buster.git&&pentest_tools&&cd whatandwhy
       ;;
-    7) cd&&git clone https://github.com/shawarkhanethicalhacker/D-TECT.git&&pentest_tools&&cd whatandwhy
+    7) cd&&https://github.com/bibortone/D-Tech.git&&pkg install python2&&pentest_tools&&cd whatandwhy
       ;;
     8) cd&&git clone https://github.com/m4ll0k/WPSeku.git&&cd WPSeku&&pip install -r requirements.txt&&cd&&pentest_tools&&cd whatandwhy
       ;;

@@ -1,3 +1,4 @@
+bash repo.sh
 apt install libxml2 libxml2-dev libxslt libxslt-dev openssl libffi libffi-dev openssl-tool openssl-dev fftw fftw-dev libzmq libzmq-dev freetype freetype-dev libpng libpng-dev pkg-config scrypt -y
 pkg install libcrypt libcrypt-dev ccrypt libgcrypt libgcrypt-dev-y
 pkg install python python-dev ndk-sysroot clang make libjpeg-turbo-dev -y
