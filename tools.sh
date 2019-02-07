@@ -176,7 +176,7 @@ function pentest_tools()
   inp
   read srzl
   case $srzl in
-    1) cd&&wget https://Auxilus.github.io/metasploit.sh&&bash metasploit.sh&&pentest_tools&&cd whatandwhy
+    1) cd&&pkg install ruby -y&&gem install bundler&&wget https://Auxilus.github.io/metasploit.sh&&chmod 777 metasploit.sh&&./metasploit.sh&&pentest_tools&&cd whatandwhy
       ;;
     2) cd&&git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev&&pentest_tools&&cd whatandwhy
       ;;
@@ -283,11 +283,13 @@ function python_libs()
       ;;
     17) pip install paramiko&&python_libs
       ;;
-    18) pip install itcat&&python_libs
+    18) pip install itchat&&python_libs
       ;;
     19) its&&apt install scipy -y&&python_libs
       ;;
-    21) pkg install clang libclang libclang-dev -y&&pip install twisted
+    20) pip install asciimatics&&python_libs
+      ;;
+    21) pkg install clang libclang libclang-dev -y&&pip install twisted&&python_libs
       ;;
     22) python -m pip install --upgrade pip&&python_libs
       ;;
