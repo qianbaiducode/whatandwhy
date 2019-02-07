@@ -176,7 +176,7 @@ function pentest_tools()
   inp
   read srzl
   case $srzl in
-    1) cd&&pkg install ruby -y&&gem install bundler&&wget https://Auxilus.github.io/metasploit.sh&&chmod 777 metasploit.sh&&./metasploit.sh&&pentest_tools&&cd whatandwhy
+    1) cd&&pkg install ruby -y&&gem install bundler&&wget https://Auxilus.github.io/metasploit.sh --no-check-certificate&&chmod 777 metasploit.sh&&./metasploit.sh&&pentest_tools&&cd whatandwhy
       ;;
     2) cd&&git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev&&pentest_tools&&cd whatandwhy
       ;;
