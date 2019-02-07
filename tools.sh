@@ -75,7 +75,7 @@ function inp()
 
 function plibs()
 {
-	pt install freetype freetype-dev libpng libpng-dev pkg-config fftw -y
+	at install freetype freetype-dev libpng libpng-dev pkg-config fftw -y
 }
 function its()
 {
