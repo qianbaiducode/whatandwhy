@@ -75,9 +75,7 @@ function inp()
 
 function plibs()
 {
-    apt install libxml2 libxml2-dev libxslt libxslt-dev openssl libffi libffi-dev openssl-tool openssl-dev fftw fftw-dev libzmq libzmq-dev freetype freetype-dev libpng libpng-dev pkg-config scrypt -y
-    pkg install libcrypt libcrypt-dev ccrypt libgcrypt libgcrypt-dev-y
-    pkg install python python-dev ndk-sysroot clang make libjpeg-turbo-dev -y
+	pt install freetype freetype-dev libpng libpng-dev pkg-config fftw -y
 }
 function its()
 {
@@ -240,7 +238,7 @@ function python_libs()
   echo -e "$color6[6]pandas        |[18]itchat"
   echo -e "$color6[7]jupyter       |[19]scipy"
   echo -e "$color5[8]lxml          |[20]asciimatics"
-  echo -e "$color4[9]scrapy        |[21]$lib"
+  echo -e "$color4[9]scrapy        |[21]twisted"
   echo -e "$color3[10]bs4          |[22]$update_pip"
   echo -e "$color2[11]requests     |[23]$all"
   echo -e "$color1[12]demjson      |[66]$return"
@@ -259,13 +257,13 @@ function python_libs()
       ;;
     4) its&&apt install numpy -y&&python_libs
       ;;
-    5) LDFLAGS=" -lm -lcompiler_rt" pip install matplotlib&&python_libs
+    5) pkg install clang libclang libclang-dev -y&&plibs&&LDFLAGS=" -lm -lcompiler_rt" pip install matplotlib&&python_libs
       ;;
-    6) LDFLAGS=" -lm -lcompiler_rt" pip install pandas&&python_libs
+    6) pkg install clang libclang libclang-dev -y&&plibs&&LDFLAGS=" -lm -lcompiler_rt" pip install pandas&&python_libs
       ;;
-    7) LDFLAGS=" -lm -lcompiler_rt" pip install jupyter&&python_libs
+    7) pkg install clang libclang libclang-dev -y&&plibs&&LDFLAGS=" -lm -lcompiler_rt" pip install jupyter&&python_libs
       ;;
-    8) pip install lxml&&python_libs
+    8) pkg install clang libclang libclang-dev -y&&plibs&&pkg install libxml2 libxml2-dev libxslt libxslt-dev -y&&pip install lxml&&python_libs
       ;;
     9) pip install scrapy&&python_libs
       ;;
@@ -279,7 +277,7 @@ function python_libs()
       ;;
     14) pip install colorama&&python_libs
       ;;
-    15) pip install pillow&&python_libs
+    15) pkg install python python-dev ndk-sysroot clang make libjpeg-turbo-dev -y&&pip install pillow&&python_libs
       ;;
     16) pip install future&&python_libs
       ;;
@@ -289,7 +287,7 @@ function python_libs()
       ;;
     19) its&&apt install scipy -y&&python_libs
       ;;
-    21) plibs
+    21) pkg install clang libclang libclang-dev -y&&pip install twisted
       ;;
     22) python -m pip install --upgrade pip&&python_libs
       ;;
@@ -334,7 +332,7 @@ function start()
       ;;
     6) bash repo.sh&&start
       ;;
-    7) cd&&apt install zsh&&chsh -s zsh&&sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O-)"&&cd&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&cd whatandwhy&&reset
+    7) wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&cd whatandwhy&&reset
       ;;
     8) cd&&pkg install vim&&curl -sLf https://spacevim.org/install.sh | bash
       ;;
