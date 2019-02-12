@@ -10,6 +10,7 @@
 pkg install wget -y
 wget https://github.com/nidhoggfgg/whatandwhy/raw/master/what
 mv what $PREFIX/bin/
+chmod 777 $PREFIX/bin/what
 what
 ```
 现在你可以在任意一个地方输入what来使用我的脚本
@@ -28,5 +29,6 @@ installation method
 pkg install wget  -y
 wget https://github.com/nidhoggfgg/whatandwhy/raw/master/what      
 mv what $PREFIX/bin/
+chmod 777 $PREFIX/bin/what
 what
 ```
