@@ -12,7 +12,7 @@ function English()
   change_source="Use Tsinghua source "
   python_lib="Python and three part library "
   all="All in one "
-  basic_tools="Install basic tools "
+  gx="Update this script"
   embellish_terminal="Embellish terminal "
   vim="Deploy vim as an IDE "
   q="Quit "
@@ -36,7 +36,7 @@ function Chinese()
   change_source="使用清华源 "
   python_lib="python和python库"
   all="全部 "
-  basic_tools="安装最基本的工具 "
+  gx="更新这个脚本 "
   embellish_terminal="美化终端 "
   vim="配置vim(spacevim) "
   q="退出"
@@ -417,7 +417,7 @@ function start()
 {
   logo
   line
-  echo -e "$color1 [1]$basic_tools"
+  echo -e "$color1 [1]$gx"
   echo -e "$color2 [2]$interesting"
   echo -e "$color3 [3]$hack"
   echo -e "$color4 [4]$python_lib"
@@ -433,7 +433,7 @@ function start()
   inp
   read choice
   case $choice in
-    1) pkg install curl tsu proot wget vim unzip unrar man -y&&start
+    1) rm -rf $PREFIX/bin/what&&wget https://github.com/nidhoggfgg/whatandwhy/raw/master/what&&mv what $PREFIX/bin/&&chmod 777 $PREFIX/bin/what&&what
       ;;
     2) interesting_things
       ;;
@@ -445,11 +445,11 @@ function start()
       ;;
     6) its&&start
       ;;
-    7) wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&echo "$rst"
+    7) pkg install zsh&&chsh -s zsh&&wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&echo "$rst"
       ;;
     8) cd&&pkg install vim&&curl -sLf https://spacevim.org/install.sh | bash
       ;;
-    9) mkdir -p $HOME/.termux/&&echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" > $HOME/.termux/termux.properties
+    9) mkdir -p $HOME/.termux/&&echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" > $HOME/.termux/termux.properties&&echo "$rst"
       ;;
     10) all
       ;;
@@ -462,6 +462,7 @@ esac
 choosepeo()
 {
   apt upgrade -y
+  pkg install curl wget vim unzip unrar man git -y
   clear
   echo "[1]I know English"
   echo "[2]我懂中文"
