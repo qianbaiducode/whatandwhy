@@ -7,11 +7,12 @@
 其实这个脚本开发当初只是为了自己能很方便地配置好termux，玩机者嘛。。。总喜欢刷机
 食用方法
 ```
-pkg install git -y
-git clone https://github.com/nidhoggfgg/whatandwhy.git
-cd whatandwhy
-bash tools.sh
+pkg install wget
+wget https://github.com/nidhoggfgg/whatandwhy/raw/master/what
+mv what $PREFIX/bin/
+what
 ```
+现在你可以在任意一个地方输入what来使用我的脚本
 ----
 English
 ----
@@ -19,14 +20,13 @@ This is a shell script for installing what you need.
 And you can install python three part library easy.For example numpy,matplotlib,lxml and so on,only with one key.
 It also can help you to install penetration test tools,msf,sqlmap……
 ps.The installation time maybe very long and maybe wrong.
-Don't worry.If you meet some mistakes，please slide down，I maybe know how to slove.
 ------
 Due to I have a holiday once a month，I can't often update it.If you find something wrong you probably have to fix it with yourself.
 -------
 installation method
 ```
-pkg install git -y
-git clone https://github.com/nidhoggfgg/whatandwhy.git
-cd whatandwhy
-bash tools.sh
+pkg install wget  
+wget https://github.com/nidhoggfgg/whatandwhy/raw/master/what      
+mv what $PREFIX/bin/
+what
 ```

@@ -260,7 +260,7 @@ function interesting_things()
       ;;
     22) its&&apt install pacman4console -y&&interesting_things   
       ;;
-    23) bash all_interesting.sh 
+    23) all_interesting
       ;;
     66) start
       ;;
@@ -331,7 +331,7 @@ function pentest_tools()
       ;;
     21) cd&&git clone https://github.com/laramies/theHarvester.git&&pentest_tools&&cd whatandwhy
       ;;
-    22) bash all_pentest_tools.sh
+    22) all_pentest_tools
       ;;
     66) start
       ;;
@@ -406,7 +406,7 @@ function python_libs()
       ;;
     22) python -m pip install --upgrade pip&&python_libs
       ;;
-    23) bash all_python_libs.sh
+    23) all_python_libs
       ;;
     66) start
       ;;
@@ -452,7 +452,7 @@ function start()
       ;;
     9) mkdir -p $HOME/.termux/&&echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" > $HOME/.termux/termux.properties
       ;;
-    10) bash all.sh
+    10) all
       ;;
     66) echo "$thank"
       ;;
