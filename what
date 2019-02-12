@@ -445,7 +445,7 @@ function start()
       ;;
     6) its&&start
       ;;
-    7) pkg install zsh&&chsh -s zsh&&wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&echo "$rst"
+    7) pkg install zsh -y&&chsh -s zsh&&wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/agnoster/darkblood/g" .zshrc&&rm -rf install.sh&&echo "$rst"
       ;;
     8) cd&&pkg install vim&&curl -sLf https://spacevim.org/install.sh | bash
       ;;
@@ -462,7 +462,7 @@ esac
 choosepeo()
 {
   apt upgrade -y
-  pkg install curl wget vim unzip unrar man git -y
+  pkg install curl wget vim unzip man git -y
   clear
   echo "[1]I know English"
   echo "[2]我懂中文"
