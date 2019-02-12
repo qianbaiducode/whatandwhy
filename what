@@ -128,7 +128,6 @@ pip2 install whatportis
 pkg insatll hydra -y
 pkg install sslscan -y
 cd&&git clone https://github.com/m4ll0k/WAScan.git&&pip2 install BeautifulSoup
-cd&&curl https://raw.githubusercontent.com/YadominJinta/atilo/master/atilo -o ~/atilo&&chmod +x atilo&&./atilo install kali
 pkg inatll nmap -y
 cd&&git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
 cd&&git clone https://github.com/kurobeats/fimap.git
@@ -252,7 +251,7 @@ function interesting_things()
       ;;
     18) pkg install pv&&interesting_things
       ;;
-    19) cd&&git clone https://github.com/mydzor/bash2048.git&&interesting_things&&cd whatandwhy
+    19) cd&&git clone https://github.com/mydzor/bash2048.git&&interesting_things
       ;;
     20) its&&apt install bastet -y&&interesting_things
       ;;
@@ -289,47 +288,47 @@ function pentest_tools()
   inp
   read srzl
   case $srzl in
-    1) cd&&pkg install ruby -y&&gem install bundler&&wget https://Auxilus.github.io/metasploit.sh --no-check-certificate&&chmod 777 metasploit.sh&&./metasploit.sh&&pentest_tools&&cd whatandwhy
+    1) cd&&pkg install ruby -y&&gem install bundler&&wget https://Auxilus.github.io/metasploit.sh --no-check-certificate&&chmod 777 metasploit.sh&&./metasploit.sh&&pentest_tools
       ;;
-    2) cd&&git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev&&pentest_tools&&cd whatandwhy
+    2) cd&&git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev&&pentest_tools
       ;;
-    3) cd&&pip2 install requests&&git clone https://github.com/reverse-shell/routersploit&&pentest_tools&&cd whatandwhy
+    3) cd&&pip2 install requests&&git clone https://github.com/reverse-shell/routersploit&&pentest_tools
       ;;
-    4) cd&&git clone https://github.com/Tuhinshubhra/RED_HAWK.git&&pentest_tools&&cd whatandwhy
+    4) cd&&git clone https://github.com/Tuhinshubhra/RED_HAWK.git&&pentest_tools
       ;;
-    5) cd&&git clone https://github.com/Mebus/cupp.git&&pentest_tools&&cd whatandwhy
+    5) cd&&git clone https://github.com/Mebus/cupp.git&&pentest_tools
       ;;
-    6) cd&&git clone https://github.com/UltimateHackers/Hash-Buster.git&&pentest_tools&&cd whatandwhy
+    6) cd&&git clone https://github.com/UltimateHackers/Hash-Buster.git&&pentest_tools
       ;;
-    7) cd&&https://github.com/bibortone/D-Tech.git&&pkg install python2&&pentest_tools&&cd whatandwhy
+    7) cd&&https://github.com/bibortone/D-Tech.git&&pkg install python2&&pentest_tools
       ;;
-    8) cd&&git clone https://github.com/m4ll0k/WPSeku.git&&cd WPSeku&&pip install -r requirements.txt&&cd&&pentest_tools&&cd whatandwhy
+    8) cd&&git clone https://github.com/m4ll0k/WPSeku.git&&cd WPSeku&&pip install -r requirements.txt&&cd&&pentest_tools
       ;;
-    9) cd&&git clone https://github.com/UltimateHackers/XSStrike.git&&cd XSStrike&&pip install -r requirements.txt&&cd&&pentest_tools&&cd whatandwhy
+    9) cd&&git clone https://github.com/UltimateHackers/XSStrike.git&&cd XSStrike&&pip install -r requirements.txt&&cd&&pentest_tools
       ;;
-    10) cd&&git clone https://github.com/UndeadSec/SocialFish.git&&cd SocialFish&&pip install -r requirements.txt&&cd&&pentest_tools&&cd whatandwhy
+    10) cd&&git clone https://github.com/UndeadSec/SocialFish.git&&cd SocialFish&&pip install -r requirements.txt&&cd&&pentest_tools
       ;;
-    11) cd&&curl -LO https://raw.githubusercontent.com/Hax4us/httrack_In_termux/master/httrack&&sh httrack&&pentest_tools&&cd whatandwhy
+    11) cd&&curl -LO https://raw.githubusercontent.com/Hax4us/httrack_In_termux/master/httrack&&sh httrack&&pentest_tools
       ;;
-    12) pip2 install whatportis&&pentest_tools&&cd whatandwhy
+    12) pip2 install whatportis&&pentest_tools
       ;;
-    13) pkg insatll hydra -y&&pentest_tools&&cd whatandwhy
+    13) pkg insatll hydra -y&&pentest_tools
       ;;
-    14) pkg install sslscan -y&&pentest_tools&&cd whatandwhy
+    14) pkg install sslscan -y&&pentest_tools
       ;;
-    15) cd&&git clone https://github.com/m4ll0k/WAScan.git&&pip2 install BeautifulSoup&&pentest_tools&&cd whatandwhy
+    15) cd&&git clone https://github.com/m4ll0k/WAScan.git&&pip2 install BeautifulSoup&&pentest_tools
       ;;
     16) cd&&curl https://raw.githubusercontent.com/YadominJinta/atilo/master/atilo -o ~/atilo&&chmod +x atilo&&./atilo install kali
       ;;
     17) pkg inatll nmap -y&&pentest_tools
       ;;
-    18) cd&&git clone https://github.com/trustedsec/social-engineer-toolkit/ set/&&pentest_tools&&cd whatandwhy
+    18) cd&&git clone https://github.com/trustedsec/social-engineer-toolkit/ set/&&pentest_tools
       ;;
-    19) cd&&git clone https://github.com/kurobeats/fimap.git&&pentest_tools&&cd whatandwhy
+    19) cd&&git clone https://github.com/kurobeats/fimap.git&&pentest_tools
       ;;
-    20) cd&&git clone https://github.com/sullo/nikto.git&&pentest_tools&&cd whatandwhy
+    20) cd&&git clone https://github.com/sullo/nikto.git&&pentest_tools
       ;;
-    21) cd&&git clone https://github.com/laramies/theHarvester.git&&pentest_tools&&cd whatandwhy
+    21) cd&&git clone https://github.com/laramies/theHarvester.git&&pentest_tools
       ;;
     22) all_pentest_tools
       ;;
@@ -446,7 +445,7 @@ function start()
       ;;
     6) its&&start
       ;;
-    7) wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&cd whatandwhy&&echo "$rst"
+    7) wget https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh&&chmod +x install.sh&&./install.sh&&sed -i "s/robbyrussell/darkblood/g" .zshrc&&echo "$rst"
       ;;
     8) cd&&pkg install vim&&curl -sLf https://spacevim.org/install.sh | bash
       ;;
