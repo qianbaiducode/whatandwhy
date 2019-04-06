@@ -222,7 +222,7 @@ function interesting_things()
       ;;
     9) pkg in nyancat -y&&interesting_things
       ;;
-    10) pkg in htop&&interesting_things
+    10) pkg in htop -y&&interesting_things
       ;;
     11) apt install nethack -y&&interesting_things
       ;;
@@ -262,7 +262,7 @@ function interesting_things()
       ;;
     29) apt install moria -y&&interesting_things
       ;;
-    30) cd&&apt install nodejs&&git clone https://github.com/yaronn/blessed-contrib.git&&cd blessed-contrib&&npm install&&cd&&interesting_things
+    30) cd&&apt install nodejs -y&&git clone https://github.com/yaronn/blessed-contrib.git&&cd blessed-contrib&&npm install&&npm audit fix&&cd&&interesting_things
       ;;
     100) all_interesting
       ;;
