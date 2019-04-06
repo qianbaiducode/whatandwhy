@@ -540,10 +540,7 @@ do
         printf "loading:[%-50s]%d%%\r" $dh $i
         sleep 0.05
         dh=#$dh
-        if [ $i == 100 ]
-        then
-        loading
-        fi
 done
+loading
 }
 loadingdh
