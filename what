@@ -46,11 +46,11 @@ function dependent()
 } 
 function p2()
 {
-  pkg in python2 -y
+  pkg in python2 python2-dev -y
 }
 function p3()
 {
-  pkg in python3 -y
+  pkg in python python-dev -y
 }
 function plibs()
 {
@@ -70,7 +70,7 @@ function its()
 }
 function plxml()
 {
-  pkg in clang libclang libclang-dev -y&&plibs&&pkg in libxml2 libxml2-dev libxslt libxslt-dev -y&&pip install lxml
+  pkg in clang libclang libclang-dev python python-dev -y&&plibs&&pkg in libxml2 libxml2-dev libxslt libxslt-dev -y&&apt install libcrypt libcrypt-dev -y&&pip install lxml
 }
 
 
@@ -401,7 +401,7 @@ function python_libs()
       ;;
     7) pkg in clang libclang libclang-dev -y&&plibs&&LDFLAGS=" -lm -lcompiler_rt" pip install jupyter&&python_libs
       ;;
-    8) pkg in clang libclang libclang-dev -y&&plibs&&pkg in libxml2 libxml2-dev libxslt libxslt-dev -y&&pip install lxml&&python_libs
+    8) plxml&&python_libs
       ;;
     9) pip install scrapy&&python_libs
       ;;
