@@ -36,7 +36,6 @@ function hwinp()
   echo -en "$color6 ☻>"
 }
 
-
 function dependent()
 {
   apt upgrade -y
@@ -72,7 +71,15 @@ function plxml()
 {
   pkg in clang libclang libclang-dev python python-dev -y&&plibs&&pkg in libxml2 libxml2-dev libxslt libxslt-dev -y&&apt install libcrypt libcrypt-dev -y&&pip install lxml
 }
-
+nin()
+{
+git clone https://github.com/TheZ3ro/ninvaders.git
+apt install ncurses* -y
+cd ninvaders
+./configure
+make
+cp nInvaders $PREFIX/bin
+}
 
 
 function English()
@@ -184,22 +191,23 @@ function interesting_things()
 {
   logo
   line
-  echo -e "$color1[1]cmatrix       |[16]screenfetch"
-  echo -e "$color2[2]sl            |[17]fortune"
-  echo -e "$color2[3]figlet        |[18]factor"
-  echo -e "$color3[4]toilet        |[19]nsnake"
-  echo -e "$color3[5]moon-buggy    |[20]cal"
-  echo -e "$color3[6]asciimap      |[21]pv"
-  echo -e "$color4[7]tree          |[22]2048"
-  echo -e "$color4[8]cowsay        |[23]bastet"
-  echo -e "$color4[9]nyancat       |[24]greed"
-  echo -e "$color4[10]htop         |[25]pacman4console"
-  echo -e "$color5[11]nethack      |[26]angband"
-  echo -e "$color5[12]weather      |[27]curseofwar" 
-  echo -e "$color5[13]gnushogi     |[28]brogue" 
-  echo -e "$color5[14]gnugo        |[29]moria" 
-  echo -e "$color5[15]nudoku       |[30]blessed-contrib" 
-  echo -e "$color6[100]$all       |[520]$return" 
+  echo -e "$color1[1]cmatrix       |[17]screenfetch"
+  echo -e "$color2[2]sl            |[18]fortune"
+  echo -e "$color2[3]figlet        |[19]factor"
+  echo -e "$color3[4]toilet        |[20]nsnake"
+  echo -e "$color3[5]moon-buggy    |[21]cal"
+  echo -e "$color3[6]asciimap      |[22]pv"
+  echo -e "$color4[7]tree          |[23]2048"
+  echo -e "$color4[8]cowsay        |[24]bastet"
+  echo -e "$color4[9]nyancat       |[25]greed"
+  echo -e "$color4[10]htop         |[26]pacman4console"
+  echo -e "$color5[11]nethack      |[27]angband"
+  echo -e "$color5[12]weather      |[28]curseofwar" 
+  echo -e "$color5[13]gnushogi     |[29]brogue" 
+  echo -e "$color5[14]gnugo        |[30]moria" 
+  echo -e "$color5[15]nudoku       |[31]blessed-contrib" 
+  echo -e "$color5[16]ninvaders    |[100]$all" 
+  echo -e "$color6[520]$return" 
   line
   hwinp
   read hw
@@ -234,35 +242,37 @@ function interesting_things()
       ;;
     15) apt install nudoku -y&&interesting_things
       ;;
-    16) apt install screenfetch -y&&interesting_things
+    16) nin&&interesting_things
       ;;
-    17) pkg in fortune -y&&interesting_things
+    17) apt install screenfetch -y&&interesting_things
       ;;
-    18) pkg insatll coreutils -y&&interesting_things
+    18) pkg in fortune -y&&interesting_things
       ;;
-    19) apt install nsnake -y&&interesting_things
+    19) pkg insatll coreutils -y&&interesting_things
       ;;
-    20) cal&&interesting_things   
+    20) apt install nsnake -y&&interesting_things
       ;;
-    21) pkg in pv&&interesting_things
+    21) cal&&interesting_things   
       ;;
-    22) cd&&git clone https://github.com/mydzor/bash2048.git&&interesting_things
+    22) pkg in pv&&interesting_things
       ;;
-    23) apt install bastet -y&&interesting_things
+    23) cd&&git clone https://github.com/mydzor/bash2048.git&&interesting_things
       ;;
-    24) apt install greed -y&&interesting_things 
+    24) apt install bastet -y&&interesting_things
       ;;
-    25) its&&apt install pacman4console -y&&interesting_things 
+    25) apt install greed -y&&interesting_things 
       ;;
-    26) apt install angband -y&&interesting_things
+    26) its&&apt install pacman4console -y&&interesting_things 
       ;;
-    27) apt install curseofwar -y&&interesting_things
+    27) apt install angband -y&&interesting_things
       ;;
-    28) apt install brogue -y&&interesting_things
+    28) apt install curseofwar -y&&interesting_things
       ;;
-    29) apt install moria -y&&interesting_things
+    29) apt install brogue -y&&interesting_things
       ;;
-    30) cd&&apt install nodejs -y&&git clone https://github.com/yaronn/blessed-contrib.git&&cd blessed-contrib&&npm install&&npm audit fix&&cd&&interesting_things
+    30) apt install moria -y&&interesting_things
+      ;;
+    31) cd&&apt install nodejs -y&&git clone https://github.com/yaronn/blessed-contrib.git&&cd blessed-contrib&&npm install&&npm audit fix&&cd&&interesting_things
       ;;
     100) all_interesting
       ;;
@@ -322,7 +332,7 @@ function pentest_tools()
       ;;
     12) cd&&p3&&git clone https://github.com/maurosoria/dirsearch.git&&pentest_tools
       ;;
-    13) cd&&bash <(wget -qO- https://git.io/vAtmB)&&pentest_tools
+    13) cd&&bash <(wget -qO- https://git.io/vAtmB)&&sed  ‘s/python/python2/g’ $PREFIX/bin/fsociety&&pentest_tools
       ;;
     14) cd&&p2&&git clone https://github.com/leapsecurity/InSpy.git&&cd InSpy&&python2 -m pip install -r requirements.txt&&cd&&pentest_tools
       ;;
@@ -538,7 +548,9 @@ dh=''
 for ((i=0;$i<=100;i+=2))
 do
         printf "loading:[%-50s]%d%%\r" $dh $i
-        sleep 0.05
+        a=`awk 'BEGIN{srand();printf "%.2f\n",rand()}'`
+        b=`awk 'BEGIN{printf "%.3f\n",('$a'/'10')}'`
+        sleep $b
         dh=#$dh
 done
 loading
