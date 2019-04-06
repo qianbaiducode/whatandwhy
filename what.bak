@@ -196,9 +196,9 @@ function interesting_things()
   echo -e "$color4[10]htop         |[25]pacman4console"
   echo -e "$color5[11]nethack      |[26]angband"
   echo -e "$color5[12]weather      |[27]curseofwar" 
-  echo -e "$color5[13]gnushogi     |[28]brogue" 
+  echo -e "$color5[13]gnushogi      |[28]brogue" 
   echo -e "$color5[14]gnugo        |[29]moria" 
-  echo -e "$color5[15]nudoku       |[30]blessed-contrib" 
+  echo -e "$color5[15]nudoku       |[30]" 
   echo -e "$color6[100]$all       |[520]$return" 
   line
   hwinp
