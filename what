@@ -5,7 +5,7 @@ color3="\e[0;33;40m"
 color4="\e[0;34;40m"
 color5="\e[0;35;40m"
 color6="\e[0;37;40m"
-mypath=$HOME/.whatandwhy
+mypath=$PREFIX/whatandwhy
 function logo()
 {
     echo -e "$color2            ██                    ██ "
@@ -279,7 +279,8 @@ function interesting_things()
     setsomething blessed node blessed-contri/examples/dashboard.js
     interesting_things
     ;;
-    33) pip install doge
+    33) pkg in python
+	    pip install doge
     interesting_things
     ;;
     520) theone
