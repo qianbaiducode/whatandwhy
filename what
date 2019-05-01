@@ -222,6 +222,8 @@ function interesting_things()
     17) getnothing https://github.com/possatti/pokemonsay.git pokemonsay
     setsomething pokemonsay bash pokemonsay/pokemonsay.sh
     setsomething pokemonthink bash pokemonsay/pokemonthink.sh
+    sedthing=$PREFIX/whatandwhy/pokemonsay
+    sed -i "s/`pwd`/$sedthing/g" $PREFIX/bin/pokemonsay
     interesting_things
     ;;
     18) apt install screenfetch -y
