@@ -222,8 +222,7 @@ function interesting_things()
     17) getnothing https://github.com/possatti/pokemonsay.git pokemonsay
     setsomething pokemonsay bash pokemonsay/pokemonsay.sh
     setsomething pokemonthink bash pokemonsay/pokemonthink.sh
-    sedthing=$PREFIX/whatandwhy/pokemonsay
-    sed -i "s/`pwd`/$sedthing/g" $PREFIX/bin/pokemonsay
+    sed -i "s/\`pwd\`/\/data\/data\/com.termux\/files\/usr\/whatandwhy\/pokemonsay/" $PREFIX/whatandwhy/pokemonsay/pokemonsay.sh
     interesting_things
     ;;
     18) apt install screenfetch -y
@@ -383,7 +382,7 @@ function pentest_tools()
     pentest_tools
     ;;
     13) bash <(wget -qO- https://git.io/vAtmB)
-    sed  ‘s/python/python2/g’ $PREFIX/bin/fsociety
+    sed -i ‘s/python/python2/’ $PREFIX/bin/fsociety
     pentest_tools
     ;;
     14) p2
