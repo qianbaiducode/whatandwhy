@@ -1,5 +1,6 @@
 #!/bin/bash
 cd
+pkg in git -y
 mkdir -p .whatandwhy/other
 git clone https://github.com/nidhoggfgg/whatandwhy.git .whatandwhy/whatandwhy
 echo "0" > .whatandwhy/other/depenent.txt
