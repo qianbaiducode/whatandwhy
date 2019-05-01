@@ -21,20 +21,8 @@ function line()
 }
 function inp()
 {
-    echo -en "$color6 ☞>"
+    echo -en "$color6 ٩(๛ ˘ ³˘)۶❤>"
 }
-function pinp()
-{
-    echo -en "$color6 ☯>"
-}
-function peninp()
-{
-    echo -en "$color6 ☣>"
-}
-function hwinp()
-{
-    echo -en "$color6 ☻>"
-} 
 function p2()
 {
     pkg in python2 python2-dev -y
@@ -73,6 +61,21 @@ function its()
     apt update
     rm -rf pointless.gpg
 }
+function allupdate()
+{
+    cd $mypath
+    for updatepath in `ls`
+    do
+    if [ $updatepath == other ]
+    then
+    pass
+    else
+    cd $updatepath
+    git pull
+    cd ..
+    fi
+    done
+}  
 function English()
 {
     interesting="Interesting things "
@@ -90,7 +93,8 @@ function English()
     rst="please restart termux"
     wahtset1="Now you can use "
     wahtset2="to start "
-    start
+    myupdate="update all"
+    theone
 }
 function Chinese()
 {
@@ -109,17 +113,19 @@ function Chinese()
     rst="请重启termux"
     wahtset1="现在你可以使用"
     wahtset2="来启动"
-    start
+    myupdate="更新一切"
+    theone
 }
 function setsomething
 {
-    touch $PREFIX/bin/$1&
-    echo "#!/bin/bash" > $PREFIX/bin/$1&
-    something=$2" "$mypath"/"$3\$\*
-    echo "$something" >> $PREFIX/bin/$1&
+    echo '#!/bin/bash' > $PREFIX/bin/$1
+    something=$2" "$mypath"/"$3" "\$\*
+    echo $something
+    echo "$something" >> $PREFIX/bin/$1
+    chmod 777 $PREFIX/bin/$1
     setok=$wahtset1$1$wahtset2$1
-    echo -e "$color3 $setok"
-    unset something setok
+    echo -e "$color1 $setok"
+    sleep 3
 }
 function getnothing
 {
@@ -145,9 +151,9 @@ function interesting_things()
     echo -e "$color5[14]gnugo        |[31]moria" 
     echo -e "$color5[15]nudoku       |[32]blessed-contrib" 
     echo -e "$color5[16]ninvaders    |[33]doge" 
-    echo -e "$color6[17]pokemonsay      |[520]" 
+    echo -e "$color6[17]pokemonsay      |[520]$return" 
     line
-    hwinp
+    inp
     read hw
     case $hw in
     1) pkg in cmatrix -y
@@ -217,6 +223,7 @@ function interesting_things()
     setsomething pokemonsay bash pokemonsay/pokemonsay.sh
     setsomething pokemonthink bash pokemonsay/pokemonthink.sh
     interesting_things
+    ;;
     18) apt install screenfetch -y
     interesting_things
     ;;
@@ -302,9 +309,8 @@ function pentest_tools()
     echo -e "$color5[14]inspy        |[29]memcrashed"
     echo -e "$color5[15]weevely      |[30]blackwidow"
     echo -e "$color6[520]$return"
-    echo "$long_time"
     line
-    peninp
+    inp
     read srzl
     case $srzl in
     1) pkg i unstable-repo -y
@@ -418,6 +424,8 @@ function pentest_tools()
     getnothing https://github.com/trustedsec/social-engineer-toolkit/ set
     plibs pexpect
     cd $mypath/set
+    pkg install python python-dev ndk-sysroot clang make libjpeg-turbo-dev -y
+    plibs pillow
     python -m pip insatll -r requirements.txt
     setsomething setoolkit python set/setoolkit
     pentest_tools
@@ -488,7 +496,7 @@ function theone()
     echo -e "$color3 [5]$embellish_terminal"
     echo -e "$color3 [6]$vim"
     echo -e "$color4 [7]$soft_keyboard"
-    ehco -e "$color4 [8]$myupdate"
+    echo -e "$color4 [8]$myupdate"
     echo -e "$color5 [520]$q"
     line
     inp
@@ -498,7 +506,8 @@ function theone()
     ;;
     2) pentest_tools
     ;;
-    3) echo "deb http://mirrors.tuna.tsinghua.edu.cn/termux stable main" > $PREFIX/etc/apt/sources.list&&start
+    3) echo "deb http://mirrors.tuna.tsinghua.edu.cn/termux stable main" > $PREFIX/etc/apt/sources.list
+    theone
     ;;
     4) its&&theone
     ;;
@@ -529,26 +538,7 @@ function theone()
 esac
 }
 
-function choosepeo()
-{
-    if cat $mypath/people.txt&
-    then b=`cat $mypath/other/people.txt&`
-	else
-	touch $mypath/other/people.txt&
-	b=0
-	fi
-    case $b in
-    0) people
-    unset b 
-    ;;
-    1) English
-    unset b
-    ;;
-    2) Chinese
-    unset b
-    ;;
-    esac
-}
+
 function people()
 {
     echo "[1]I know English"
@@ -556,10 +546,10 @@ function people()
     inp
     read peo 
     case $peo in
-    1) echo "1" > $HOME/.whatandwhy/people.txt&
+    1) echo "1" > $mypath/other/people.txt
     English
     ;;
-    2) echo "2"> $HOME/.whatandwhy/people.txt&
+    2) echo "2" > $mypath/other/people.txt
     Chinese
     ;;
     *) echo "please input 1 or 2"
@@ -568,30 +558,43 @@ function people()
     ;;
     esac
 }
+function choosepeo()
+{
+    if cat $mypath/other/people.txt
+    then b=`cat $mypath/other/people.txt`
+    else
+    b=0
+    fi
+    case $b in
+    0) people
+    ;;
+    1) English
+    ;;
+    2) Chinese
+    ;;
+    esac
+}
 
 function dependent()
 {
     apt upgrade -y
-    pkg in curl wget git -y
-    echo "1" > $mypath/other/dependent.txt&
+    pkg in curl wget git make -y
+    echo "1" > $mypath/other/dependent.txt
     choosepeo
 } 
 
 function detectdepend()
 {
-    if cat $mypath/dependent.txt&
-    then a=`cat $mypath/dependent.txt`
+    if cat $mypath/other/dependent.txt
+    then a=`cat $mypath/other/dependent.txt`
     else
-    touch $mypath/dependent.txt
     a=0
     fi
-    if [ $a ==  1 ]
+    if [ $a == 1 ]
     then
     choosepeo
-    unset a
     else
     dependent
-    unset a
     fi
 }
 detectdepend
