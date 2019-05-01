@@ -17,7 +17,7 @@ function logo()
 }
 function line()
 {
-    echo -e "$color6————————————————————————————————————————————————————————"
+    echo -e "$color6————————————————————————————————————————————————"
 }
 function inp()
 {
@@ -151,7 +151,7 @@ function interesting_things()
     echo -e "$color5[14]gnugo        |[31]moria" 
     echo -e "$color5[15]nudoku       |[32]blessed-contrib" 
     echo -e "$color5[16]ninvaders    |[33]doge" 
-    echo -e "$color6[17]pokemonsay      |[520]$return" 
+    echo -e "$color6[17]pokemonsay   |[520]$return" 
     line
     inp
     read hw
@@ -547,10 +547,14 @@ function people()
     inp
     read peo 
     case $peo in
-    1) echo "1" > $mypath/other/people.txt
+    1) cd $mypath/other
+	    echo "1" > people.txt
+	    cd
     English
     ;;
-    2) echo "2" > $mypath/other/people.txt
+    2) cd $mypath/other
+	    echo "2" > people.txt
+	    cd
     Chinese
     ;;
     *) echo "please input 1 or 2"
@@ -580,7 +584,8 @@ function dependent()
 {
     apt upgrade -y
     pkg in curl wget git make -y
-    echo "1" > $mypath/other/dependent.txt
+    cd $mypath/other
+    echo "1" > dependent.txt
     choosepeo
 } 
 
@@ -598,4 +603,5 @@ function detectdepend()
     dependent
     fi
 }
+mkdir -p $PREFIX/whatandwhy/other
 detectdepend
