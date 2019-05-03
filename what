@@ -210,7 +210,7 @@ function interesting_things()
     interesting_things
     ;;
     16) git clone https://github.com/TheZ3ro/ninvaders.git
-    apt install ncurses* -y
+    apt install ncurses* clang -y
     cd ninvaders
     ./configure
     make
@@ -220,7 +220,8 @@ function interesting_things()
     interesting_things
     ;;
     17) getnothing https://github.com/possatti/pokemonsay.git pokemonsay
-    setsomething pokemonsay bash pokemonsay/pokemonsay.sh
+    pkg install clang -y
+	    setsomething pokemonsay bash pokemonsay/pokemonsay.sh
     setsomething pokemonthink bash pokemonsay/pokemonthink.sh
     sed -i "s/\`pwd\`/\/data\/data\/com.termux\/files\/usr\/whatandwhy\/pokemonsay/" $PREFIX/whatandwhy/pokemonsay/pokemonsay.sh
     interesting_things
